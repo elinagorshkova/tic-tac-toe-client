@@ -25,6 +25,17 @@ const signOutSuccess = function () {
   console.log('Signed out')
 }
 
+const newGameSuccess = function (data) {
+  store.game = data.game
+  $('#message').text('New Game Created')
+  console.log('New Game Created', data)
+  console.log(store.game.id)
+}
+
+const addMoveSuccess = function (data) {
+  $('#message').text('That seems to be working')
+  console.log('Weehaa')
+}
 const failure = function () {
   $('#message').text('Error')
   console.error('Failure')
@@ -35,5 +46,7 @@ module.exports = {
   signInSuccess,
   signUpSuccess,
   signOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  newGameSuccess,
+  addMoveSuccess
 }
