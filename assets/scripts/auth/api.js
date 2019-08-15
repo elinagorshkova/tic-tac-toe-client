@@ -58,11 +58,21 @@ const addMove = function (data) {
     data: {
       game: {
         cell: {
-          index: data.getAttribute('data-cell-index'),
-          value: 'x'
+          index: store.id,
+          value: store.marker
         },
-        over: false
+        over: store.over
       }
+    }
+  })
+}
+
+const checkApi = function () {
+  return $.ajax({
+    url: config.apiUrl + 'games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -73,5 +83,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  addMove
+  addMove,
+  checkApi
 }

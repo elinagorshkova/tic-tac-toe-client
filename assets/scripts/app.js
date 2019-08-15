@@ -7,7 +7,6 @@
 // require('./example')
 const authEvents = require('./auth/events')
 const gameEvents = require('./script')
-const playEvents = require('./game')
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -15,5 +14,5 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#new-game').on('submit', gameEvents.newGame)
   $('.cell').on('click', gameEvents.game)
-  //$('.cell').on('click', playEvents.play)
+  $('#check-api').on('click', authEvents.onCheckApi)
 })

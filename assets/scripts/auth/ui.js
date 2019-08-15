@@ -29,6 +29,8 @@ const newGameSuccess = function (data) {
   store.game = data.game
   $('#message').text('New Game Created')
   console.log('New Game Created', data)
+  console.log(store.game)
+  console.log(store.game.cells)
   console.log(store.game.id)
 }
 
@@ -36,6 +38,13 @@ const addMoveSuccess = function (data) {
   $('#message').text('That seems to be working')
   console.log('Weehaa')
 }
+
+const checkApiSuccess = function (data) {
+  store.game = data.game
+  console.log('Weeeehaa' + data.game.cells)
+  console.log(data.game.over)
+}
+
 const failure = function () {
   $('#message').text('Error')
   console.error('Failure')
@@ -48,5 +57,6 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   newGameSuccess,
-  addMoveSuccess
+  addMoveSuccess,
+  checkApiSuccess
 }
