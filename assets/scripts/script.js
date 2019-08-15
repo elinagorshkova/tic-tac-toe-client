@@ -42,6 +42,11 @@ const togglePlayer = function () {
   marker = markers[whoseTurn]
   return marker
 }
+const winConditions = function (moves, marker) {
+  if ((moves[0] === marker && moves[1] === marker && moves[2] === marker) || (moves[3] === marker && moves[4] === marker && moves[5] === marker) || (moves[6] === marker && moves[7] === marker && moves[8] === marker) || (moves[0] === marker && moves[3] === marker && moves[6] === marker) || (moves[1] === marker && moves[4] === marker && moves[7] === marker) || (moves[2] === marker && moves[5] === marker && moves[8] === marker) || (moves[0] === marker && moves[4] === marker && moves[8] === marker) || (moves[6] === marker && moves[4] === marker && moves[2] === marker)) {
+    console.log(marker + ' won')
+  }
+}
 
 const game = function (event) {
   const id = $(this).attr('id')
@@ -51,6 +56,7 @@ const game = function (event) {
     moves[id] = marker
     $('#' + id).text(marker)
   }
+  winConditions(moves, marker)
   console.log(id)
   console.log(cellTaken)
   console.log(moves)
@@ -60,6 +66,8 @@ const newGame = function () {
   moves = [null, null, null, null, null, null, null, null, null]
   console.log(moves)
 }
+
+// code to check win conditions
 module.exports = {
   game,
   newGame
