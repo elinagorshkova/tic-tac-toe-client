@@ -58,7 +58,7 @@ const addMove = function (data) {
     data: {
       game: {
         cell: {
-          index: 0,
+          index: data.getAttribute('data-cell-index'),
           value: 'x'
         },
         over: false

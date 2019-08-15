@@ -55,10 +55,11 @@ const onNewGame = function (event) {
     .catch(ui.failure)
 }
 const onAddMove = function (event) {
-  event.preventDefault()
-  api.addMove()
-    .then(ui.addMoveSuccess)
-    .catch(ui.failure)
+
+  // event.preventDefault()
+  // api.addMove()
+    //.then(ui.addMoveSuccess)
+    //.catch(ui.failure)
 }
 
 module.exports = {
