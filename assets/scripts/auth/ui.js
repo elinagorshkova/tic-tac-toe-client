@@ -3,32 +3,32 @@
 const store = require('../store')
 
 const signUpSuccess = function () {
-  $('#message').text('Successful sign up')
+  $('#user-message').text('Successful sign up')
   console.log('Signed up successfuly')
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
   $('.auth-forms').fadeOut()
-  $('#message').text('Successful sign in')
+  $('#user-message').text('Successful sign in')
   console.log('Signed in successfuly', 'user is:', store.user)
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Successfully changed password')
+  $('#user-message').text('Successfully changed password')
   console.log('Password changed')
 }
 
 const signOutSuccess = function () {
   console.log('store')
   store.user = null
-  $('#message').text('Signed out successfully')
+  $('#user-message').text('Signed out successfully')
   console.log('Signed out')
 }
 
 const newGameSuccess = function (data) {
   store.game = data.game
-  $('#message').text('New Game Created')
+  $('#user-message').text('New Game Created')
   console.log('New Game Created', data)
   console.log(store.game)
   console.log(store.game.cells)
@@ -37,7 +37,7 @@ const newGameSuccess = function (data) {
 }
 
 const addMoveSuccess = function (data) {
-  $('#message').text('That seems to be working')
+  $('#user-message').text('That seems to be working')
   console.log('Weehaa')
 }
 
@@ -48,12 +48,19 @@ const checkApiSuccess = function (data) {
   function gamesWon (game) {
     return game.over === true
   }
+  const gamesPlayed = data.games.length / 2
   const wins = data.games.filter(gamesWon)
-  console.log('Games won' + wins.length)
+  $('#check-api').attr('data-content', 'Games played: ' + gamesPlayed + '||' + 'Games won: ' + wins.length)
+  $('#check-api').popover('show')
+}
+
+const eachMoveSuccess = function (data) {
+  console.log()
+  $('#user-message').text('Updtated')
 }
 
 const failure = function () {
-  $('#message').text('Error')
+  $('#user-message').text('Error')
   console.error('Failure')
 }
 
@@ -65,5 +72,6 @@ module.exports = {
   changePasswordSuccess,
   newGameSuccess,
   addMoveSuccess,
-  checkApiSuccess
+  checkApiSuccess,
+  eachMoveSuccess
 }

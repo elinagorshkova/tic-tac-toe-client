@@ -61,21 +61,11 @@ const addMove = function (data) {
           index: store.id,
           value: store.marker
         },
-        over: store.over
+        over: store.game.over
       }
     }
   })
 }
-
-/* const checkApi = function () {
-  return $.ajax({
-    url: config.apiUrl + 'games/' + store.game.id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-} */
 const checkApi = function () {
   return $.ajax({
     url: config.apiUrl + 'games',

@@ -7,9 +7,13 @@ const api = require('./auth/api')
 // let moves = store.game.cells
 // let moves = [null, null, null, null, null, null, null, null, null]
 const players = ['User X', 'User O']
+const playersTurn = ['User O', 'User X']
 let whoseTurn = 1
 let marker = ''
 
+const onError = function () {
+  $('#user-message').text('')
+}
 // Clears the board and the board JS when user clicks 'New Game' button
 const newGame = function (event) {
   event.preventDefault()
@@ -35,37 +39,21 @@ const togglePlayer = function () {
 }
 
 // Checks if any of the win/lose conditions are met on the board and returns message to user
-// working code
-/* const winConditions = function (moves, marker) {
-  event.preventDefault()
-  moves = store.game.cells
-  if ((moves[0] === marker && moves[1] === marker && moves[2] === marker) || (moves[3] === marker && moves[4] === marker && moves[5] === marker) || (moves[6] === marker && moves[7] === marker && moves[8] === marker) || (moves[0] === marker && moves[3] === marker && moves[6] === marker) || (moves[1] === marker && moves[4] === marker && moves[7] === marker) || (moves[2] === marker && moves[5] === marker && moves[8] === marker) || (moves[0] === marker && moves[4] === marker && moves[8] === marker) || (moves[6] === marker && moves[4] === marker && moves[2] === marker)) {
-    console.log(moves)
-    $('#message').text(players[whoseTurn] + ' wins')
-    window.alert(players[whoseTurn] + ' wins')
-    store.over = true
-    return true
-  } else {
-    console.log(moves)
-    store.over = false
-    return false
-  }
-} */
+
 const winConditions = function (moves, marker) {
   event.preventDefault()
   moves = store.game.cells
   if ((moves[0] === marker && moves[1] === marker && moves[2] === marker) || (moves[3] === marker && moves[4] === marker && moves[5] === marker) || (moves[6] === marker && moves[7] === marker && moves[8] === marker) || (moves[0] === marker && moves[3] === marker && moves[6] === marker) || (moves[1] === marker && moves[4] === marker && moves[7] === marker) || (moves[2] === marker && moves[5] === marker && moves[8] === marker) || (moves[0] === marker && moves[4] === marker && moves[8] === marker) || (moves[6] === marker && moves[4] === marker && moves[2] === marker)) {
     //  if (moves.every(x => x !== null)) {
     console.log(moves)
-    $('#message').text(players[whoseTurn] + ' wins')
-    window.alert(players[whoseTurn] + ' wins')
+    $('#user-message').text(players[whoseTurn] + ' wins')
     store.game.over = true
     console.log(store.game.over)
     return true
   } else {
     if (moves.every(x => x !== '')) {
       console.log('draw')
-      $('#message').text('draw')
+      $('#user-message').text('draw')
       store.game.over = true
       console.log(store.game.over)
       return true
@@ -90,20 +78,20 @@ const game = function (event) {
       moves[id] = marker
       store.marker = marker
       $('#' + id).text(marker)
-      $('#currentPlayer').text(players[marker])
+      $('#user-message').text('Current player is: ' + playersTurn[whoseTurn])
       store.game.over = winConditions(moves, marker)
       api.addMove()
     } else {
-      window.alert('Pick another cell')
+      $('#user-message').text('Pick another cell')
     }
   } else {
-    $('#message').text('Game is over')
-    window.alert('Game over')
+    $('#user-message').text('Start a new game!')
   }
   return moves
 }
 
 module.exports = {
   game,
-  newGame
+  newGame,
+  onError
 }

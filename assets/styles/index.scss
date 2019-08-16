@@ -1,14 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
+
+#board {
+  display: flex;
+  justify-content: center;
+}
+body {
+  font-family: 'Varela Round', sans-serif;
+	}
+
+
 .cell {
+  background-color: #87ceeb;
+  border: solid 1px;
   height: 100px;
   width: 100px;
-  border: solid 1px;
-  background-color: pink;
 }
-
-body {
-		font-family: 'Varela Round', sans-serif;
-	}
+#game-title {
+  display: flex;
+  justify-content: center;
+}
 	.modal-login {
 		color: #636363;
 		width: 350px;
@@ -81,11 +91,20 @@ body {
         line-height: normal;
         border: none;
     }
-	.modal-login .btn:hover, .modal-login .btn:focus {
-		background: #45aba6;
-		outline: none;
-	}
-	.trigger-btn {
-		display: inline-block;
-		margin: 100px auto;
+
+.modal-login .btn:hover, .modal-login .btn:focus {
+background: #45aba6;
+outline: none;
+ }
+
+#start-over {
+  display: flex;
+  justify-content: center;
+}
+#user-message {
+  text-align: right
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
 	}

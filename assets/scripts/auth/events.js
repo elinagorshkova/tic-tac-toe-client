@@ -55,6 +55,13 @@ const onNewGame = function () {
     .then(ui.newGameSuccess)
     .catch(ui.failure)
 }
+
+const onEachMove = function () {
+  event.preventDefault()
+  api.addMove()
+    .then(ui.eachMoveSucess)
+    .catch(ui.failure)
+}
 const onCheckApi = function () {
   event.preventDefault()
   api.checkApi()
@@ -69,5 +76,6 @@ module.exports = {
   onSignOut,
   onNewGame,
   onCheckApi,
-  store
+  store,
+  onEachMove
 }
