@@ -9,6 +9,7 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  $('.auth-forms').fadeOut()
   $('#message').text('Successful sign in')
   console.log('Signed in successfuly', 'user is:', store.user)
 }

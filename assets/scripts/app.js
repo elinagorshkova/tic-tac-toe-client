@@ -8,11 +8,15 @@
 const authEvents = require('./auth/events')
 const gameEvents = require('./script')
 $(() => {
+  $(document).ready(function () {
+    $('#exampleModal').modal('show')
+  })
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
-  $('#new-game').on('submit', gameEvents.newGame)
+  $('#change-password').on('click', authEvents.onChangePassword)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  $('.new-game').on('click', gameEvents.newGame)
+  $('.new-game').on('click', gameEvents.newGame)
   $('.cell').on('click', gameEvents.game)
   $('#check-api').on('click', authEvents.onCheckApi)
 })

@@ -2,6 +2,7 @@
 const getFormFields = require('./../../../lib/get-form-fields') // get data from from user input
 const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
+const store = require('../store')
 
 const onSignUp = function (event) {
   // prevent default action from happening
@@ -67,5 +68,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onNewGame,
-  onCheckApi
+  onCheckApi,
+  store
 }

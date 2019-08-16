@@ -11,56 +11,76 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+<body>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
 
-      <h1>Auth feature test</h1>
-      <div id='message'>Message</div>
-
-      <form id='sign-up' class='border'>
-      <fieldset>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type ="password" name="credentials[password]" placeholder="Password">
-          <input type ="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-          <input type="submit" value="Sign up!">
-      </fieldset>
-    </form>
-    <form id='sign-in' class='border'>
-    <fieldset>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type ="password" name="credentials[password]" placeholder="Password">
-        <input type="submit" value="Sign in!">
-    </fieldset>
-  </form>
-  <form id='change-password' class='border'>
-    <fieldset>
-      <legend>Change Password!</legend>
-      <input type="password" name="passwords[old]" placeholder="Current password">
-      <input type="password" name="passwords[new]" placeholder="New password">
-      <input type='submit' value='Change Password!'>
-    </fieldset>
-  </form>
-
-  <form id="sign-out" class='border'>
-    <fieldset>
-      <legend>Sign Out!</legend>
-      <input type="submit" value='Sign Out!'>
-  </fieldset>
-</form>
-<header>
-  <div class='container'>
-  <div class='row'>
-    <button>Rules</button>
-    <button>Help</button>
-    <div class='row authorization'>
-      <button class='sign-up'>Sign Up!</button>
-      <button class='sign-in'>Sign In!</button>
-      <div class='user-sign-in'>UserName</div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class='auth-forms'>
+            <h3>Sign Up!</h3>
+          <form id='sign-up' class='border'>
+          <fieldset>
+            <div class='row'>
+              <input type="text" class ='col-4' name="credentials[email]" placeholder="Email">
+              <input type ="password" class ='col-4' name="credentials[password]" placeholder="Password">
+              <input type ="password" class ='col-4' name="credentials[password_confirmation]" placeholder="Confirm password">
+            </div>
+              <input type="submit" class='col-12' value="Sign up!">
+          </fieldset>
+          <h3>Already a user? Sign In!</h3>
+          </form>
+          <form id='sign-in' class='border'>
+          <fieldset>
+            <input type="text" class='col-4' name="credentials[email]" placeholder="Email">
+            <input type ="password" class='col-4' name="credentials[password]" placeholder="Password">
+            <input type="submit" class='col-12' value="Sign in!">
+          </fieldset>
+          </form>
+        </div>
+        <button class='new-game' class='col-12' data-dismiss='modal'>Lets Play!</button>
+      </div>
     </div>
   </div>
 </div>
+
+
+      <div id='message'>Message</div>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Rules</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">
+            <div id="sign-out">Sign Out</div>
+          </a>
+          <a class="dropdown-item" href="#">
+          <div id='change-password'>Change Password</div>
+        </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 </header>
+
   <h1>Board</h1>
-  <table>
+  <table id='board'>
     <div class='row'>
       <div>current player:</div>
       <div id='currentPlayer'></div>
@@ -83,10 +103,9 @@
       </tr>
   </tbody>
   </table>
-<form id="new-game" class='border'>
+<form class="new-game" class='border'>
   <fieldset>
-    <legend>New game!</legend>
-    <input type="submit" value='New Game!'>
+    <input type="submit" value='Start new game!'>
 </fieldset>
 </form>
 <hr>
@@ -94,6 +113,5 @@
 <footer>Footer</footer>
 </div>
 <button id='check-api'> Check API </button>
-
     </body>
 </html>
