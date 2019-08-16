@@ -33,6 +33,7 @@ const newGameSuccess = function (data) {
   console.log(store.game)
   console.log(store.game.cells)
   console.log(store.game.id)
+  console.log(store.game.over)
 }
 
 const addMoveSuccess = function (data) {
@@ -41,9 +42,14 @@ const addMoveSuccess = function (data) {
 }
 
 const checkApiSuccess = function (data) {
-  store.game = data.game
-  console.log('Weeeehaa' + data.game.cells)
-  console.log(data.game.over)
+  store.games = data.games
+  console.log('Weeeehaa' + data.games)
+  console.log('Games played' + data.games.length)
+  function gamesWon (game) {
+    return game.over === true
+  }
+  const wins = data.games.filter(gamesWon)
+  console.log('Games won' + wins.length)
 }
 
 const failure = function () {

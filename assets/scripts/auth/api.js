@@ -67,9 +67,18 @@ const addMove = function (data) {
   })
 }
 
-const checkApi = function () {
+/* const checkApi = function () {
   return $.ajax({
     url: config.apiUrl + 'games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+} */
+const checkApi = function () {
+  return $.ajax({
+    url: config.apiUrl + 'games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

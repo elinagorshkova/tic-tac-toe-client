@@ -59,17 +59,20 @@ const winConditions = function (moves, marker) {
     console.log(moves)
     $('#message').text(players[whoseTurn] + ' wins')
     window.alert(players[whoseTurn] + ' wins')
-    store.over = true
+    store.game.over = true
+    console.log(store.game.over)
     return true
   } else {
     if (moves.every(x => x !== '')) {
       console.log('draw')
       $('#message').text('draw')
-      store.over = true
+      store.game.over = true
+      console.log(store.game.over)
       return true
     } else {
       console.log(moves)
-      store.over = false
+      store.game.over = false
+      console.log(store.game.over)
       return false
     }
   }
