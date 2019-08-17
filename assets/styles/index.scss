@@ -1,23 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
 
+$sage: #a1be95;
+$honeydew: #e2dfa2;
+$bluebell: #92aac7;
+$raspberry: #ed5752;
+$dark: #2b616d;
+$arctic: #b2dbd5;
+$white: #ffffff;
+$brick: #fa8d62;
+$honey: #FCC875;
+$warm: #baa896;
+$putty: #e6ccb5;
+$rose: #e38b75;
+
+
+
+
 #board {
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 3rem;
 }
+
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: $putty;
 	}
+
+  .btn-primary {
+    background-color: $rose;
+    box-shadow: 10px 10px 5px $warm;
+    padding: 0.5rem;
+  }
 
 
 .cell {
-  background-color: #87ceeb;
-  border: solid 1px;
-  height: 100px;
-  width: 100px;
+  background-color: $honey;
+  box-shadow: 20px 20px 10px $warm;
+  height: 200px;
+  width: 200px;
 }
 #game-title {
   display: flex;
   justify-content: center;
+}
+.navbar {
+  background-color: $rose;
+  color: $warm;
 }
 	.modal-login {
 		color: #636363;
