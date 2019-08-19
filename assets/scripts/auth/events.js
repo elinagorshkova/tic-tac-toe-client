@@ -32,7 +32,7 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target) // {passwords: {old: 123}, {new: 234}}
+  const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.failure)
@@ -45,6 +45,7 @@ const onSignOut = function (event) {
     .catch(ui.failure)
 }
 
+// Shows modal Sign In/Sign Out form
 const onShowAuth = function () {
   $('#starting-form').modal('show')
   $('.auth-forms').show()

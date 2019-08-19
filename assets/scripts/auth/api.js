@@ -2,6 +2,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// POSTs a new game in API
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -9,6 +10,7 @@ const signUp = function (data) {
     data
   })
 }
+// Checks email/password pair from the input field and returns token
 const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
@@ -17,6 +19,7 @@ const signIn = function (data) {
   })
 }
 
+// PATCHes password in API, usong data from input field
 const changePassword = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
@@ -28,6 +31,7 @@ const changePassword = function (data) {
   })
 }
 
+// Deletes Token
 const signOut = function () {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
@@ -38,6 +42,7 @@ const signOut = function () {
   })
 }
 
+// Creates new game with existing token
 const newGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -48,6 +53,7 @@ const newGame = function () {
   })
 }
 
+// Updates the game object data using the currengt game data such as cells taken and 'is game over?'
 const addMove = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
@@ -66,6 +72,8 @@ const addMove = function (data) {
     }
   })
 }
+
+// Gets total games played by user
 const checkApi = function () {
   return $.ajax({
     url: config.apiUrl + '/games',

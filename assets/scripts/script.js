@@ -67,6 +67,7 @@ const winConditions = function (moves, marker) {
   }
 }
 
+// Function runs any time a user hits a cell.
 const game = function (event) {
   event.preventDefault()
   const moves = store.game.cells
