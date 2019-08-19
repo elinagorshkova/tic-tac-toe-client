@@ -7,11 +7,40 @@ $danger: #00d1cd;
 
 @import '~bootstrap/scss/bootstrap';
 
+@media (max-width: 650px) {
+  body {
+    .game-score, #game-flow-message {
+      display: flex;
+      font-size: 1em;
+      font-weight: bold;
+      justify-content: center;
+      padding: 3px;
+    }
+
+    #game-title {
+      color: $gray;
+      display: flex;
+      margin-top: 50px;
+      font-size: 2em;
+      font-weight: bold;
+      justify-content: center;
+    }
+
+    .cell {
+      background-color: $pink;
+      box-shadow: 10px 10px 5px $gray;
+      color: $lightgray;
+      height: 2.5em;
+      width: 2.5em;
+      font-size: 30px;
+    }
+  }
+}
+
 #board {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
 }
 
 body {
@@ -23,153 +52,155 @@ body {
 
 .btn {
   box-shadow: 10px 10px 3px $gray;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
 }
 
 
 .cell {
   background-color: $pink;
   box-shadow: 20px 20px 10px $gray;
-  color:$lightgray;
-  height: 130px;
-  width: 130px;
+  color: $lightgray;
+  height: 2em;
+  width: 2em;
   font-size: 65px;
 }
 
 #change-password {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
 }
+
 #check-api {
   height: 30px;
   width: 150px;
   font-size: 15px;
+  padding: 5px;
 }
-
-
-#navbarNavDropdown {
-  display: flex;
-  justify-content: flex-end;
-  text-align: right;
-}
-
 
 .game-score, #game-flow-message {
   display: flex;
-  font-size: 40px;
+  font-size: 2em;
   font-weight: bold;
   justify-content: center;
-  padding: .5rem;
+  padding: 5px;
 }
 
 #game-title {
   color: $gray;
   display: flex;
   margin-top: 100px;
-  font-size: 50px;
+  font-size: 3em;
   font-weight: bold;
   justify-content: center;
+  padding: 5px;
+}
+
+#navbarNavDropdown {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+.modal-login {
+  color: #636363;
+  width: 350px;
+}
+.modal-login .modal-content {
   padding: 20px;
+  border-radius: 5px;
+  border: none;
 }
-.navbar {
-  background-color: $sea;
-  color: $gray;
+.modal-login .modal-header {
+  border-bottom: none;
+      position: relative;
+      justify-content: center;
 }
-	.modal-login {
-		color: #636363;
-		width: 350px;
-	}
-	.modal-login .modal-content {
-		padding: 20px;
-		border-radius: 5px;
-		border: none;
-	}
-	.modal-login .modal-header {
-		border-bottom: none;
-        position: relative;
-        justify-content: center;
-	}
-	.modal-login h4 {
-		text-align: center;
-		font-size: 26px;
-		margin: 30px 0 -15px;
-	}
-	.modal-login .form-control:focus {
-		border-color: #70c5c0;
-	}
-	.modal-login .form-control, .modal-login .btn {
-		min-height: 40px;
-		border-radius: 3px;
-	}
-	.modal-login .close {
-        position: absolute;
-		top: -5px;
-		right: -5px;
-	}
-	.modal-login .modal-footer {
-		background: #ecf0f1;
-		border-color: #dee4e7;
-		text-align: center;
-        justify-content: center;
-		margin: 0 -20px -20px;
-		border-radius: 5px;
-		font-size: 13px;
-	}
-	.modal-login .modal-footer a {
-		color: #999;
-	}
-	.modal-login .avatar {
-		position: absolute;
-		margin: 0 auto;
-		left: 0;
-		right: 0;
-		top: -70px;
-		width: 95px;
-		height: 95px;
-		border-radius: 50%;
-		z-index: 9;
-		background: #60c7c1;
-		padding: 15px;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-	}
-	.modal-login .avatar img {
-		width: 100%;
-	}
-	.modal-login.modal-dialog {
-		margin-top: 80px;
-	}
-    .modal-login .btn {
-        color: #fff;
-        border-radius: 4px;
-		background: #60c7c1;
-		text-decoration: none;
-		transition: all 0.4s;
-        line-height: normal;
-        border: none;
-    }
+.modal-login h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -15px;
+}
+.modal-login .form-control:focus {
+  border-color: #70c5c0;
+}
+.modal-login .form-control, .modal-login .btn {
+  min-height: 40px;
+  border-radius: 3px;
+}
+.modal-login .close {
+      position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.modal-login .modal-footer {
+  background: #ecf0f1;
+  border-color: #dee4e7;
+  text-align: center;
+  justify-content: center;
+  margin: 0 -20px -20px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.modal-login .modal-footer a {
+  color: #999;
+}
+.modal-login .avatar {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -70px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: #60c7c1;
+  padding: 15px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-login .avatar img {
+  width: 100%;
+}
+.modal-login.modal-dialog {
+  margin-top: 80px;
+}
+  .modal-login .btn {
+      color: #fff;
+      border-radius: 4px;
+  background: #60c7c1;
+  text-decoration: none;
+  transition: all 0.4s;
+      line-height: normal;
+      border: none;
+  }
 
 .modal-login .btn:hover, .modal-login .btn:focus {
 background: #45aba6;
 outline: none;
- }
-.score {
 }
+
+.navbar {
+  background-color: $sea;
+  color: $gray;
+  height: 5vh;
+}
+
+
 #starting-form {
   display: flex;
   text-align: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 10px;
+  font-size: 15px;
 }
+
 #start-over {
   display: flex;
   justify-content: center;
 }
+
 #user-message {
-  text-align: right
+  text-align: right;
 }
-.trigger-btn {
-  display: inline-block;
-  margin: 100px auto;
-	}

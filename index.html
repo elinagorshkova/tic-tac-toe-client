@@ -92,13 +92,14 @@
 
 
 <!-- Game board -->
-<h1 id='game-title'>Tic Tac Toe</h1>
-  <div class='row game-score'>
+<div class='container-fluid'>
+<h1 class='col-xs-12' id='game-title'>Tic Tac Toe</h1>
+  <div class='row col-12 game-score'>
     <div id='x'> X </div>
     <div> &nbsp;&nbsp; : &nbsp;&nbsp; </div>
     <div id='o'> O </div>
   </div>
-  <div id='game-flow-message'> Please Sign In to start </div>
+  <div class='row col-12' id='game-flow-message'> Please Sign In to start </div>
   <table id='board'>
     <tbody>
       <tr>
@@ -118,8 +119,9 @@
       </tr>
   </tbody>
   </table>
+</div>
   <!-- Game Board -->
-  <div id='start-over'>
+  <div class='row' id='start-over'>
 <button class='new-game btn btn-primary' title="New Game">New game!</button>
 </div>
 <footer>
@@ -128,7 +130,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a id='check-api' tabindex="0" class="btn btn-primary" role="button" data-toggle="popover" data-trigger="focus" title="My statistics" data-content="">My Statistics</a>
-        </li>
+      </li>
       </ul>
         <div class="container alert" role="alert" id='user-message'> </div>
     </div>
