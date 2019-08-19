@@ -45,7 +45,7 @@ const checkApiSuccess = function (data) {
   function gamesWon (game) {
     return game.over === true
   }
-  const gamesPlayed = data.games.length / 2
+  const gamesPlayed = data.games.length
   const wins = data.games.filter(gamesWon)
   $('#check-api').attr('data-content', 'Games played: ' + gamesPlayed + '||' + 'Games won: ' + wins.length)
   $('#check-api').popover('show')

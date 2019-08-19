@@ -45,30 +45,23 @@ const togglePlayer = function () {
 }
 
 // Checks if any of the win/lose conditions are met on the board and returns message to user
-
 const winConditions = function (moves, marker) {
   event.preventDefault()
+  // Array of board cells returned from API
   moves = store.game.cells
+  // Checks win/draw conditions
   if ((moves[0] === marker && moves[1] === marker && moves[2] === marker) || (moves[3] === marker && moves[4] === marker && moves[5] === marker) || (moves[6] === marker && moves[7] === marker && moves[8] === marker) || (moves[0] === marker && moves[3] === marker && moves[6] === marker) || (moves[1] === marker && moves[4] === marker && moves[7] === marker) || (moves[2] === marker && moves[5] === marker && moves[8] === marker) || (moves[0] === marker && moves[4] === marker && moves[8] === marker) || (moves[6] === marker && moves[4] === marker && moves[2] === marker)) {
-    //  if (moves.every(x => x !== null)) {
-    console.log(moves)
-    $('#user-message').text(players[whoseTurn] + ' wins')
     $('#game-flow-message').text(players[whoseTurn] + ' won!')
+    // Stores the fact that the game is over to be sent to API
     store.game.over = true
-    console.log(store.game.over)
     return true
   } else {
     if (moves.every(x => x !== '')) {
-      console.log('draw')
-      $('#user-message').text('draw')
       $('#game-flow-message').text('Draw')
       store.game.over = true
-      console.log(store.game.over)
       return true
     } else {
-      console.log(moves)
       store.game.over = false
-      console.log(store.game.over)
       return false
     }
   }
