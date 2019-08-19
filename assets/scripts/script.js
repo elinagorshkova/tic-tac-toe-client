@@ -6,7 +6,7 @@ const authEvents = require('./auth/events')
 const api = require('./auth/api')
 // let moves = store.game.cells
 // let moves = [null, null, null, null, null, null, null, null, null]
-const players = ['User X', 'User O']
+const players = ['X', 'O']
 const playersTurn = ['User O', 'User X']
 let whoseTurn = 1
 let marker = ''
@@ -31,8 +31,14 @@ const togglePlayer = function () {
   const markers = ['X', 'O']
   if (whoseTurn === 0) {
     whoseTurn = 1
+    $('#game-flow-message').text('X, your turn')
+    $('#x').css('color', '#f30067')
+    $('#o').css('color', '#444444')
   } else {
     whoseTurn = 0
+    $('#game-flow-message').text('O, now your turn')
+    $('#o').css('color', '#f30067')
+    $('#x').css('color', '#444444')
   }
   marker = markers[whoseTurn]
   return marker
@@ -47,6 +53,7 @@ const winConditions = function (moves, marker) {
     //  if (moves.every(x => x !== null)) {
     console.log(moves)
     $('#user-message').text(players[whoseTurn] + ' wins')
+    $('#game-flow-message').text(players[whoseTurn] + ' won!')
     store.game.over = true
     console.log(store.game.over)
     return true
@@ -54,6 +61,7 @@ const winConditions = function (moves, marker) {
     if (moves.every(x => x !== '')) {
       console.log('draw')
       $('#user-message').text('draw')
+      $('#game-flow-message').text('Draw')
       store.game.over = true
       console.log(store.game.over)
       return true
@@ -82,10 +90,11 @@ const game = function (event) {
       store.game.over = winConditions(moves, marker)
       api.addMove()
     } else {
-      $('#user-message').text('Pick another cell')
+      $('#user-message').text('The cell has already been taken')
+      $('#game-flow-message').text('Nope, pick another one')
     }
   } else {
-    $('#user-message').text('Start a new game!')
+    $('#user-message').text('Current game is finished. You can start a new game')
   }
   return moves
 }

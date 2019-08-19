@@ -11,6 +11,12 @@ $(() => {
   $(document).ready(function () {
     $('#starting-form').modal('show')
   })
+  $(document).ready(function () {
+    $('#change-password').hide()
+  })
+  $(document).ready(function () {
+    $('#sign-out').hide()
+  })
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -19,4 +25,5 @@ $(() => {
   $('.cell').on('click', gameEvents.game)
   $('.cell').on('click', authEvents.onEachMove)
   $('#check-api').on('click', authEvents.onCheckApi)
+  $('#button-auth').on('click', authEvents.onShowAuth)
 })
