@@ -4,14 +4,14 @@ const store = require('../store')
 
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiUrl + 'sign-up',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data
   })
 }
 const signIn = function (data) {
   return $.ajax({
-    url: config.apiUrl + 'sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data
   })
@@ -19,7 +19,7 @@ const signIn = function (data) {
 
 const changePassword = function (data) {
   return $.ajax({
-    url: config.apiUrl + 'change-password',
+    url: config.apiUrl + '/change-password',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -30,7 +30,7 @@ const changePassword = function (data) {
 
 const signOut = function () {
   return $.ajax({
-    url: config.apiUrl + 'sign-out',
+    url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -40,7 +40,7 @@ const signOut = function () {
 
 const newGame = function () {
   return $.ajax({
-    url: config.apiUrl + 'games',
+    url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -50,7 +50,7 @@ const newGame = function () {
 
 const addMove = function (data) {
   return $.ajax({
-    url: config.apiUrl + 'games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -68,7 +68,7 @@ const addMove = function (data) {
 }
 const checkApi = function () {
   return $.ajax({
-    url: config.apiUrl + 'games',
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

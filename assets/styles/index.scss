@@ -11,12 +11,13 @@ $danger: #00d1cd;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 body {
   font-family: 'Rajdhani', sans-serif;
   background-color: $lightgray;
+  color: $gray;
 	}
 
 .btn {
@@ -28,6 +29,7 @@ body {
 .cell {
   background-color: $pink;
   box-shadow: 20px 20px 10px $gray;
+  color:$lightgray;
   height: 130px;
   width: 130px;
   font-size: 65px;
@@ -50,18 +52,20 @@ body {
 
 .game-score, #game-flow-message {
   display: flex;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   justify-content: center;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 #game-title {
+  color: $gray;
   display: flex;
+  margin-top: 4rem;
   font-size: 3rem;
   font-weight: bold;
   justify-content: center;
-  padding: 1,5rem;
+  padding: .5rem;
 }
 .navbar {
   background-color: $sea;
