@@ -4,47 +4,44 @@ const store = require('../store')
 
 const signUpSuccess = function () {
   $('#user-message').text('Successful sign up')
-  console.log('Signed up successfuly')
+  document.getElementById('sign-up').reset()
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
   $('.auth-forms').fadeOut()
   $('#user-message').text('Successful sign in')
-  console.log('Signed in successfuly', 'user is:', store.user)
+  // console.log('Signed in successfuly', 'user is:', store.user)
+  document.getElementById('sign-in').reset()
+  $('#game-flow-message').text('Press "New Game" to start')
+  $('#starting-form').modal('hide')
+  $('#button-auth').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
 }
 
 const changePasswordSuccess = function () {
   $('#user-message').text('Successfully changed password')
-  console.log('Password changed')
 }
 
 const signOutSuccess = function () {
-  console.log('store')
   store.user = null
+  $('#game-flow-message').text('See you soon!')
   $('#user-message').text('Signed out successfully')
-  console.log('Signed out')
+  $('#button-auth').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
 }
 
 const newGameSuccess = function (data) {
   store.game = data.game
   $('#user-message').text('New Game Created')
-  console.log('New Game Created', data)
-  console.log(store.game)
-  console.log(store.game.cells)
-  console.log(store.game.id)
-  console.log(store.game.over)
-}
-
-const addMoveSuccess = function (data) {
-  $('#user-message').text('That seems to be working')
-  console.log('Weehaa')
+  $('#game-flow-message').text('Let`s have some fun!')
+  // console.log('New Game Created', data)
 }
 
 const checkApiSuccess = function (data) {
   store.games = data.games
-  console.log('Weeeehaa' + data.games)
-  console.log('Games played' + data.games.length)
   function gamesWon (game) {
     return game.over === true
   }
@@ -55,8 +52,13 @@ const checkApiSuccess = function (data) {
 }
 
 const eachMoveSuccess = function (data) {
-  console.log()
-  $('#user-message').text('Updtated')
+  console.log('Api updated')
+  $('#user-message').text('Updated')
+}
+const authFailure = function () {
+  $('#user-message').text('Incorrect email and/or password')
+  document.getElementById('sign-up').reset()
+  document.getElementById('sign-in').reset()
 }
 
 const failure = function () {
@@ -71,7 +73,7 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   newGameSuccess,
-  addMoveSuccess,
   checkApiSuccess,
-  eachMoveSuccess
+  eachMoveSuccess,
+  authFailure
 }

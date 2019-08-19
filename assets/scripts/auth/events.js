@@ -7,31 +7,27 @@ const store = require('../store')
 const onSignUp = function (event) {
   // prevent default action from happening
   event.preventDefault()
-  console.log('submitted sign-up')
   // get form data
   const data = getFormFields(event.target)
-  console.log('sign up is ', data)
   // make tha api call
   api.signUp(data)
   // handle sucess
     .then(ui.signUpSuccess)
   // handle fail
-    .catch(ui.failure)
+    .catch(ui.authFailure)
 }
 
 const onSignIn = function (event) {
 // prevent default action from happening
   event.preventDefault()
-  console.log('submitted sign-in')
   // get form data
   const data = getFormFields(event.target)
-  console.log('sign in is ', data)
   // make tha api call
   api.signIn(data)
   // handle sucess
     .then(ui.signInSuccess)
   // handle fail
-    .catch(ui.failure)
+    .catch(ui.authFailure)
 }
 
 const onChangePassword = function (event) {
@@ -49,6 +45,11 @@ const onSignOut = function (event) {
     .catch(ui.failure)
 }
 
+const onShowAuth = function () {
+  $('#starting-form').modal('show')
+  $('.auth-forms').show()
+}
+
 const onNewGame = function () {
   event.preventDefault()
   api.newGame()
@@ -60,7 +61,7 @@ const onEachMove = function () {
   event.preventDefault()
   api.addMove()
     .then(ui.eachMoveSucess)
-    .catch(ui.failure)
+    .catch(ui.gameFailure)
 }
 const onCheckApi = function () {
   event.preventDefault()
@@ -77,5 +78,6 @@ module.exports = {
   onNewGame,
   onCheckApi,
   store,
-  onEachMove
+  onEachMove,
+  onShowAuth
 }
