@@ -16,6 +16,18 @@ $(() => {
   $(document).ready(function () {
     $('#sign-out').hide()
   })
+  $(document).ready(function () {
+    $('#check-api').hide()
+  })
+  $(document).ready(function () {
+    $('#board').hide()
+  })
+  $(document).ready(function () {
+    $('#start-over').hide()
+  })
+  $(document).ready(function () {
+    $('#xo').hide()
+  })
   // Lines 18-21 call authorization features
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
