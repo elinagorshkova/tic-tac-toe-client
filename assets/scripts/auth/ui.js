@@ -17,10 +17,12 @@ const signInSuccess = function (data) {
   $('#button-auth').hide()
   $('#change-password').show()
   $('#sign-out').show()
+  $('#start-over').show()
 }
 
 const changePasswordSuccess = function () {
   $('#user-message').text('Successfully changed password')
+  document.getElementById('change-password').reset()
 }
 
 const signOutSuccess = function () {
@@ -30,12 +32,19 @@ const signOutSuccess = function () {
   $('#button-auth').show()
   $('#change-password').hide()
   $('#sign-out').hide()
+  $('#board').hide()
+  $('#check-api').hide()
+  $('#start-over').hide()
+  $('#xo').hide()
 }
 
 const newGameSuccess = function (data) {
   store.game = data.game
   $('#user-message').text('New Game Created')
   $('#game-flow-message').text('Let`s have some fun!')
+  $('#board').show()
+  $('#xo').show()
+  $('#check-api').show()
 }
 
 const checkApiSuccess = function (data) {
@@ -58,6 +67,7 @@ const authFailure = function () {
   $('#user-message').text('Incorrect email and/or password')
   document.getElementById('sign-up').reset()
   document.getElementById('sign-in').reset()
+  document.getElementById('change-password').reset()
 }
 
 // Universal Error message
