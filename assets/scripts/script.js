@@ -2,8 +2,8 @@
 
 // Working Code down there
 const store = require('./store')
-const authEvents = require('./auth/events')
-const api = require('./auth/api')
+const gameEvents = require('./game/events')
+const api = require('./game/api')
 // let moves = store.game.cells
 // let moves = [null, null, null, null, null, null, null, null, null]
 const players = ['X', 'O']
@@ -17,7 +17,7 @@ const onError = function () {
 // Clears the board and the board JS when user clicks 'New Game' button
 const newGame = function (event) {
   event.preventDefault()
-  authEvents.onNewGame(event)
+  gameEvents.onNewGame(event)
   const moves = [null, null, null, null, null, null, null, null, null]
   for (let i = 0; i < moves.length; i++) {
     $('#' + i).text('')
