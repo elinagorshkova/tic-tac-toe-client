@@ -9,9 +9,9 @@ const signUpSuccess = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  document.getElementById('sign-in').reset()
   $('.auth-forms').fadeOut()
   $('#user-message').text('Successful sign in')
-  document.getElementById('sign-in').reset()
   $('#game-flow-message').text('Press "New Game" to start')
   $('#starting-form').modal('hide')
   $('#button-auth').hide()
@@ -48,8 +48,7 @@ const authFailure = function () {
 
 // Universal Error message
 const failure = function () {
-  $('#user-message').text('Error')
-  console.error('Failure')
+  $('#user-message').text('Unknown error')
 }
 
 module.exports = {

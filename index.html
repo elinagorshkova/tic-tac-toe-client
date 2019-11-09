@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
-<!--Head is from the browser template-->
     <head>
       <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
-      <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
@@ -48,7 +45,7 @@
   </header>
 
 <!-- Sign In/Sign Up form popping up when the page loads -->
-<div class="modal fade" id="starting-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="starting-form" tabindex="-1" role="dialog" aria-labelledby="StartingForm" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -73,6 +70,7 @@
           </form>
           <hr>
           <h3>Already a user? Sign In!</h3>
+          <p>Please use this pre-populated data for demo</p>
           <form id='sign-in' class='border'>
             <fieldset>
               <div class='row'>
@@ -126,14 +124,12 @@
 </div>
 <footer>
   <nav class="navbar fixed-bottom navbar-expand">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a id='check-api' tabindex="0" class="btn btn-primary" role="button" data-toggle="popover" data-trigger="focus" title="My statistics" data-content="">My Statistics</a>
       </li>
       </ul>
         <div class="container alert" role="alert" id='user-message'> </div>
-    </div>
   </nav>
 </footer>
 

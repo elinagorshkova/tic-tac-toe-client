@@ -28,7 +28,7 @@ const eachMoveSuccess = function (data) {
 
 // Universal Error message
 const failure = function () {
-  $('#user-message').text('Error')
+  $('#user-message').text('Unknown error')
 }
 
 module.exports = {

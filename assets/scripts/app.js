@@ -5,31 +5,10 @@ const gameEvents = require('./game/events')
 const engine = require('./script')
 $(() => {
   // Shows Sign Up, Sign In form as soon as the page loads
-  $(document).ready(function () {
-    $('#starting-form').modal('show')
-  })
+  pageLoad()
   // Shows Sign Up/Sign In forms on click
   $('#button-auth').on('click', authEvents.onShowAuth)
-  // Line 10-16 hide Change Password and Sign Out buttons until the users logs in
-  $(document).ready(function () {
-    $('#change-password').hide()
-  })
-  $(document).ready(function () {
-    $('#sign-out').hide()
-  })
-  $(document).ready(function () {
-    $('#check-api').hide()
-  })
-  $(document).ready(function () {
-    $('#board').hide()
-  })
-  $(document).ready(function () {
-    $('#start-over').hide()
-  })
-  $(document).ready(function () {
-    $('#xo').hide()
-  })
-  // Lines 18-21 call authorization features
+  // Call authorization features
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -43,3 +22,11 @@ $(() => {
   // Returns game data (total games played for a user, games won) from API on click.
   $('#check-api').on('click', gameEvents.onCheckApi)
 })
+
+const pageLoad = function () {
+  $('#starting-form').modal('show')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#check-api').hide()
+  $('#board').hide()
+}

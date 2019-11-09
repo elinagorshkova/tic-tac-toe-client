@@ -1,7 +1,6 @@
 'use strict'
 const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
-const store = require('../store')
 
 const onNewGame = function () {
   event.preventDefault()
@@ -26,6 +25,5 @@ const onCheckApi = function () {
 module.exports = {
   onNewGame,
   onCheckApi,
-  store,
   onEachMove
 }
