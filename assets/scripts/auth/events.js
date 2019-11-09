@@ -2,7 +2,6 @@
 const getFormFields = require('./../../../lib/get-form-fields') // get data from from user input
 const api = require('./api') // link to API call file
 const ui = require('./ui') // link to UI file
-const store = require('../store')
 
 const onSignUp = function (event) {
   // prevent default action from happening
@@ -51,34 +50,10 @@ const onShowAuth = function () {
   $('.auth-forms').show()
 }
 
-const onNewGame = function () {
-  event.preventDefault()
-  api.newGame()
-    .then(ui.newGameSuccess)
-    .catch(ui.failure)
-}
-
-const onEachMove = function () {
-  event.preventDefault()
-  api.addMove()
-    .then(ui.eachMoveSucess)
-    .catch(ui.gameFailure)
-}
-const onCheckApi = function () {
-  event.preventDefault()
-  api.checkApi()
-    .then(ui.checkApiSuccess)
-    .catch(ui.failure)
-}
-
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame,
-  onCheckApi,
-  store,
-  onEachMove,
   onShowAuth
 }

@@ -2,22 +2,17 @@
 
 // Working Code down there
 const store = require('./store')
-const authEvents = require('./auth/events')
-const api = require('./auth/api')
-// let moves = store.game.cells
-// let moves = [null, null, null, null, null, null, null, null, null]
+const gameEvents = require('./game/events')
+const api = require('./game/api')
+
 const players = ['X', 'O']
 const playersTurn = ['User O', 'User X']
 let whoseTurn = 1
 let marker = ''
 
-const onError = function () {
-  $('#user-message').text('')
-}
 // Clears the board and the board JS when user clicks 'New Game' button
 const newGame = function (event) {
-  event.preventDefault()
-  authEvents.onNewGame(event)
+  gameEvents.onNewGame(event)
   const moves = [null, null, null, null, null, null, null, null, null]
   for (let i = 0; i < moves.length; i++) {
     $('#' + i).text('')
@@ -27,11 +22,10 @@ const newGame = function (event) {
 
 // Switches X and O
 const togglePlayer = function () {
-  event.preventDefault()
   const markers = ['X', 'O']
   if (whoseTurn === 0) {
     whoseTurn = 1
-    $('#game-flow-message').text('X, your turn')
+    $('#game-flow-message').text('X, now your turn')
     $('#x').css('color', '#f30067')
     $('#o').css('color', '#444444')
   } else {
@@ -46,7 +40,6 @@ const togglePlayer = function () {
 
 // Checks if any of the win/lose conditions are met on the board and returns message to user
 const winConditions = function (moves, marker) {
-  event.preventDefault()
   // Array of board cells returned from API
   moves = store.game.cells
   // Checks win/draw conditions
@@ -69,7 +62,6 @@ const winConditions = function (moves, marker) {
 
 // Function runs any time a user hits a cell.
 const game = function (event) {
-  event.preventDefault()
   const moves = store.game.cells
   const id = $(this).attr('id')
   store.id = id
@@ -95,6 +87,5 @@ const game = function (event) {
 
 module.exports = {
   game,
-  newGame,
-  onError
+  newGame
 }
